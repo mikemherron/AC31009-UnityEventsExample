@@ -12,6 +12,15 @@ public class UIController : MonoBehaviour
         gameOverText.enabled = false;
     }
 
+    public void onPlayerHealthUpdated(int health) {
+        if(health>0) {
+            UpdateHealth(health);
+        }  else {
+            HideHealth();
+            ShowGameOver();
+        }
+    }
+
     public void ShowGameOver() {
         gameOverText.enabled = true;
     }

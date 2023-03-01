@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class PlayerHealthUpdatedEvent : UnityEvent<int> { }
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerHealthUpdatedEvent onPlayerHealthUpdated;
+
     public GameObject bulletPrefab;
+    public int health = 10;
     public float moveSpeed = 0f;
     public Rigidbody2D rigidBody;
     public Vector2 movement;
     public Animator animator;
-    public int health = 10;
-    public UIController uiController;
-    public GameObject turrets;
     public AudioSource hitSound;
-    public AudioSource gameOverSound;
+    
+    void Start()
+    {
+        if(onPlayerHealthUpdated == null) {
+            onPlayerHealthUpdated = new PlayerHealthUpdatedEvent();
+        }
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
@@ -44,22 +55,9 @@ public class PlayerController : MonoBehaviour
             BulletController controller = collision.gameObject.GetComponent<BulletController>();
             if (controller.firedBy.tag == "Turret") {
                 Destroy(collision.gameObject);
-                health -= 1;
-                if(health <= 0) {
-                    //Remove the turrets
-                    Destroy(turrets);
-                    //Hide the health display
-                    uiController.HideHealth();
-                    //Show the game over screen
-                    uiController.ShowGameOver();
-                    //Play the game over sound
-                    gameOverSound.Play();
-                    //Remove the player
-                    Destroy(gameObject);
-                } else {
-                    //Update health UI
-                    uiController.UpdateHealth(health);
-                    //Play the hit sound
+                health--;
+                onPlayerHealthUpdated.Invoke(health);
+                if(health > 0) {
                     hitSound.Play();
                 }
             }

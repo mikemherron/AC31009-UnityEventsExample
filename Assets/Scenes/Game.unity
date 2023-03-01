@@ -204,12 +204,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28561646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03, y: -0.02, z: 0}
+  m_LocalPosition: {x: 1.232, y: -0.048, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &28561649
 MonoBehaviour:
@@ -223,14 +223,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a49b9cb2db3b544b192af119c48f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPlayerHealthUpdated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1698411318}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: onPlayerHealthUpdated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 380239814}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: onPlayerHealthUpdated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   bulletPrefab: {fileID: 3977417123394648783, guid: ec901c0932cd2ef428af14cc00331dd6, type: 3}
   moveSpeed: 5
   rigidBody: {fileID: 28561650}
   movement: {x: 0, y: 0}
   animator: {fileID: 28561651}
   health: 10
-  uiController: {fileID: 1698411318}
-  turrets: {fileID: 1569909411}
   hitSound: {fileID: 1702046912}
   gameOverSound: {fileID: 742825031}
 --- !u!50 &28561650
@@ -440,6 +465,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8959874960771072991, guid: 93158811a1cf51b41bae7fbc08a65a7d, type: 3}
   m_PrefabInstance: {fileID: 1130107163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &380239812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380239813}
+  - component: {fileID: 380239814}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &380239813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380239812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7133851, y: -0.10687058, z: 596.40765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &380239814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380239812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1d592cfdb430d47a81aab3f5b3f085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turrets: {fileID: 1569909411}
+  player: {fileID: 28561646}
+  gameOverSound: {fileID: 742825031}
 --- !u!1 &441550929
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +543,7 @@ Transform:
   - {fileID: 1702046911}
   - {fileID: 742825030}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &490957681
 GameObject:
@@ -692,7 +764,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &519420033
 SpriteRenderer:
@@ -862,7 +934,7 @@ RectTransform:
   - {fileID: 108093674}
   - {fileID: 490957682}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1031,7 +1103,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742825029
 GameObject:
@@ -1387,7 +1459,7 @@ Transform:
   - {fileID: 339438158}
   - {fileID: 1138682680}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1698411316
 GameObject:
@@ -1419,7 +1491,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1698411318
 MonoBehaviour:
