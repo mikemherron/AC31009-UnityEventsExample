@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float moveSpeed = 0f;
     public Rigidbody2D rigidBody;
     public Vector2 movement;
     public Animator animator;
-    public int health = 10;
     public UIController uiController;
     public GameObject turrets;
     public AudioSource hitSound;
     public AudioSource gameOverSound;
+    public int health = 10;
+    public float moveSpeed = 0f;
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
