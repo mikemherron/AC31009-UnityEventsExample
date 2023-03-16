@@ -251,13 +251,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   bulletPrefab: {fileID: 3977417123394648783, guid: ec901c0932cd2ef428af14cc00331dd6, type: 3}
-  moveSpeed: 5
   rigidBody: {fileID: 28561650}
   movement: {x: 0, y: 0}
   animator: {fileID: 28561651}
-  health: 10
   hitSound: {fileID: 1702046912}
-  gameOverSound: {fileID: 742825031}
+  health: 10
+  moveSpeed: 5
 --- !u!50 &28561650
 Rigidbody2D:
   serializedVersion: 4
@@ -476,7 +475,7 @@ GameObject:
   - component: {fileID: 380239813}
   - component: {fileID: 380239814}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -506,7 +505,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 380239812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a1d592cfdb430d47a81aab3f5b3f085, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f0171aa687a3ad43bf04be88f4f7928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   turrets: {fileID: 1569909411}
